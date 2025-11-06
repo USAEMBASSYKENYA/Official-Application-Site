@@ -15,14 +15,11 @@
       --shadow:0 8px 30px rgba(0,0,0,0.08);
       font-family:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
     }
-
     * { box-sizing: border-box; }
-
     body {
       margin: 0;
       background: linear-gradient(180deg, #f0f4ff 0%, var(--bg) 100%);
       color: #111827;
-      font-family: var(--font-family);
     }
 
     .poster {
@@ -36,14 +33,8 @@
       grid-template-columns: 1fr 420px;
       gap: 28px;
     }
-
-    /* Tablet and below */
     @media (max-width: 880px) {
-      .poster {
-        grid-template-columns: 1fr;
-        max-width: 90%;
-        padding: 20px;
-      }
+      .poster { grid-template-columns: 1fr; max-width: 90%; padding: 20px; }
     }
 
     header {
@@ -53,23 +44,10 @@
       margin-bottom: 20px;
       flex-wrap: wrap;
     }
+    header h2 { font-size: 20px; margin: 0; font-weight: 800; color: var(--accent-dark); }
+    header small { color: var(--muted); }
 
-    header h2 {
-      font-size: 20px;
-      margin: 0;
-      font-weight: 800;
-      color: var(--accent-dark);
-    }
-
-    header small {
-      color: var(--muted);
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
+    .hero { display: flex; flex-direction: column; gap: 18px; }
 
     .kicker {
       display: inline-block;
@@ -89,10 +67,7 @@
       line-height: 1.2;
       color: var(--accent-dark);
     }
-
-    @media (max-width: 520px) {
-      h1 { font-size: 1.6rem; }
-    }
+    @media (max-width: 520px) { h1 { font-size: 1.6rem; } }
 
     p.lead {
       margin: 0;
@@ -101,12 +76,7 @@
       line-height: 1.5;
     }
 
-    .badges {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
+    .badges { display: flex; gap: 8px; flex-wrap: wrap; }
     .badge {
       background: #eef2ff;
       padding: 8px 12px;
@@ -130,12 +100,7 @@
       border-radius: 10px;
     }
 
-    .role h4 {
-      margin: 0;
-      font-size: 15px;
-      color: var(--accent-dark);
-    }
-
+    .role h4 { margin: 0; font-size: 15px; color: var(--accent-dark); }
     .role small { color: var(--muted); }
 
     .cta-row {
@@ -146,40 +111,27 @@
       margin-top: 18px;
     }
 
+    .btn-primary, .btn-secondary {
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      flex: 1 1 auto;
+    }
+
     .btn-primary {
       background: var(--accent-dark);
       color: white;
-      padding: 12px 18px;
-      border-radius: 10px;
-      border: none;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      flex: 1 1 auto;
-      text-align: center;
     }
 
     .btn-secondary {
       background: transparent;
       border: 2px solid var(--accent-dark);
       color: var(--accent-dark);
-      padding: 10px 16px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      flex: 1 1 auto;
-      text-align: center;
     }
 
-    .note {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 8px;
-    }
+    .note { font-size: 13px; color: var(--muted); margin-top: 8px; }
 
     .panel {
       background: linear-gradient(180deg, #ffffff, #fbfdff);
@@ -187,19 +139,9 @@
       border-radius: 12px;
       border: 1px solid #eef3ff;
     }
+    .panel h3 { margin: 0 0 6px 0; color: var(--accent-dark); }
 
-    .panel h3 {
-      margin: 0 0 6px 0;
-      color: var(--accent-dark);
-    }
-
-    .package {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
+    .package { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
     .pkg {
       display: flex;
       justify-content: space-between;
@@ -234,32 +176,42 @@
       gap: 10px;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    img { max-width: 100%; height: auto; border-radius: 8px; }
 
-    .logo .icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: linear-gradient(180deg, var(--accent-dark), var(--accent));
-      display: grid;
-      place-items: center;
+    /* ✅ Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
       color: white;
-      font-weight: 800;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .whatsapp-float:hover {
+      background-color: #20ba5a;
+      transform: scale(1.1);
+    }
+    @media (max-width: 480px) {
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        bottom: 15px;
+        right: 15px;
+      }
     }
 
     @media print {
-      body { background: white; }
-      .poster { box-shadow: none; border: none; }
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
+      .whatsapp-float { display: none; }
     }
   </style>
 </head>
@@ -268,8 +220,7 @@
   <article class="poster" role="region" aria-labelledby="posterTitle">
     <section class="hero">
       <header>
-        <!-- Replace the image URL with an online link or local relative path -->
-        <img src="Embassy logo.png" alt="Embassy logo" style="height: 60px;width: 60px;">
+        <img src="Embassy logo.png" alt="Embassy logo" style="height:60px;">
         <div>
           <h2>Embassy of the United States of America</h2>
           <small>Nairobi, Kenya</small>
@@ -299,8 +250,6 @@
           <div class="role"><h4>Healthcare</h4><small>Nurses, Technicians, Specialists</small></div>
           <div class="role"><h4>Engineering</h4><small>Mechanical, Civil, Electrical</small></div>
           <div class="role"><h4>Business &amp; Finance</h4><small>Analysts, Consultants</small></div>
-          <div class="role"><h4>Education</h4><small>Teachers, Consultants</small></div>
-        
         </div>
       </div>
 
@@ -309,15 +258,13 @@
         <a class="btn-secondary" href="#programDetails">Program Details</a>
       </div>
 
-      <p class="note">Deadline to apply: <strong>November 9, 2025</strong>. Applicants will be notified via email.</p>
+      <p class="note">Deadline to apply: <strong>October 6, 2025</strong>. Applicants will be notified via email.</p>
     </section>
 
     <aside class="panel" id="programDetails" aria-labelledby="panelTitle">
-      <div class="logo">
-        <div>
-          <strong>Embassy of the United States</strong>
-          <div style="font-size:13px;color:var(--muted)">Official Communication — Nairobi, Kenya</div>
-        </div>
+      <div>
+        <strong>Embassy of the United States</strong>
+        <div style="font-size:13px;color:var(--muted)">Official Communication — Nairobi, Kenya</div>
       </div>
 
       <h3 id="panelTitle" style="margin-top:14px">Program Benefits</h3>
@@ -330,13 +277,13 @@
       </div>
 
       <div class="deadline">
-        <strong>Apply by</strong>November 9, 2025 — Early applicants prioritized.
+        <strong>Apply by</strong> October 6, 2025 — Early applicants prioritized.
       </div>
 
       <div style="margin-top:12px;font-size:14px">
         <div><strong>How to Apply</strong></div>
         <ol style="margin:8px 0 0 18px;color:var(--muted)">
-          <li>Send your: CV, cover letter, passport size photo, academic papers and national Identification Card to <a href="mailto:USAembassykenya@gmail.com">USAembassykenya@gmail.com</a>.</li>
+          <li>Send your CV and cover letter to <a href="mailto:USAembassykenya@gmail.com">USAembassykenya@gmail.com</a>.</li>
           <li>Eligible candidates will be contacted for an embassy interview and guidance session.</li>
           <li>Visa documentation and relocation procedures will be handled through approved embassy channels.</li>
         </ol>
@@ -348,6 +295,14 @@
       </div>
     </aside>
   </article>
+
+  <!-- ✅ WhatsApp floating button -->
+  <a href="https://wa.me/254786955658?text=Hello!%20I%20would%20like%20to%20inquire%20about%20the%20U.S.%20Work%20Visa%20Program." 
+     class="whatsapp-float" 
+     target="_blank" 
+     aria-label="Chat on WhatsApp">
+     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+          alt="WhatsApp icon">
+  </a>
 </body>
 </html>
-
